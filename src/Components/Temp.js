@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaStreetView } from "react-icons/fa";
+import "./Style.css"
 
 
 const Temp = () => {
@@ -20,13 +21,14 @@ const Temp = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="card">
-          <div>
+      <div className="weather">
+      
+          <div className="searchbar">
         <input
           type="search"
           value={search}
-          className="inputField"
+          placeholder="Search"
+          className="searchbar input"
           onChange={(event) => {
             setSearch(event.target.value);
           }}
@@ -38,22 +40,22 @@ const Temp = () => {
       ) : (
         <>
           <div>
-            <h2>
+            <h2 className="city">
               <FaStreetView/>
               {search}
             </h2>
-            <h1>{city.temp}°Cel</h1>
-            <h3>
-              Min : {city.temp_min}°Cel | Max : {city.temp_mix}°Cel
+            <h1 className="temp">{city.temp}°Cel</h1>
+            <h3 className="min">
+              Min : {city.temp_min}°Cel | Max : {city.temp_max}°Cel
             </h3>
           </div>
-          <div className="wave -one"></div>
-          <div className="wave -two"></div>
-          <div className="wave -three"></div>
+          <div className="wave"></div>
+          <div className="wave-two"></div>
+          <div className="wave-three"></div>
         </>
       )}
       </div>
-      </div>
+      
     </>
   );
 };
